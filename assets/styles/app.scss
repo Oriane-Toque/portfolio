@@ -1,3 +1,99 @@
-body {
-    background-color: lightgray;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Ubuntu:wght@500&display=swap');
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+// fonts
+$font-title: 'Lobster', sans-serif;
+$font-text: 'Ubuntu', sans-serif;
+// colors (light theme)
+$snd-bg-color: #f5f6fa; 
+$text-color: #2f3640;
+$snd-color: #e0b029;
+// colors (black theme)
+$main-bg-color: #2f3640;
+$blk-snd-bg-color: #0f1014;
+$blk-text-color: #f5f6fa;
+// font size
+$sm-size: 1rem;
+$md-size: 1.5rem;
+$lg-size: 2rem;
+
+// Header/banner
+header[role="banner"] {
+    background-color: $snd-bg-color;
+    padding: 1rem 1rem;
+    border-bottom: 5px solid $snd-color;
+
+    // main navigation
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        // logo
+        #navbar__logo {
+            flex: 1;
+
+            img {
+                height: 50px;
+                width: 50px;    
+            }
+        }
+
+        // items navigation
+        .navbar__nav {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+
+            // item list
+            .navbar__nav-item {
+                flex: 1;
+                margin: 0 5px;
+                text-align: right;
+
+                // links
+                a {
+                    font-size: $md-size;
+                    color: $snd-color;
+                    &:hover {
+                        color: darken($snd-color, 30%);
+                    }
+                    // text links
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Footer with social items
+footer[role="contentinfo"] {
+    padding: 1rem 0 5rem 0;
+    background-color: $snd-bg-color;
+    border-top: 5px solid $snd-color;
+
+    .social {
+        display: flex;
+        justify-content: space-evenly;
+
+        .social__item {
+            font-size: $md-size;
+            a {
+               color: $snd-color;
+               &:hover {
+                   color: darken($snd-color, 30%);
+               } 
+            }
+        }
+    }
 }
