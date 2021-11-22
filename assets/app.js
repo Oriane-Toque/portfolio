@@ -9,9 +9,9 @@
 import './styles/reset.scss';
 import './styles/app.scss';
 
+// script import
+import './modules/themes.js';
+
 // font awesome
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
-
-// start the Stimulus application
-import './bootstrap';

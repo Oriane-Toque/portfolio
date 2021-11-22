@@ -24,11 +24,23 @@ $sm-size: 1rem;
 $md-size: 1.5rem;
 $lg-size: 2rem;
 
+// ========================================= Black Theme ===============================================
+body.shadow {
+    background-color: $main-bg-color;
+    color: $blk-text-color;
+
+    header[role="banner"],
+    footer[role="contentinfo"] {
+        background-color: $blk-snd-bg-color;
+    }
+}
+
+// ========================================= Light Theme ===============================================
 // Header/banner
 header[role="banner"] {
     background-color: $snd-bg-color;
     padding: 1rem 1rem;
-    border-bottom: 5px solid $snd-color;
+    border-bottom: 5px solid darken($snd-color, 10%);
 
     // main navigation
     .navbar {
@@ -76,15 +88,41 @@ header[role="banner"] {
     }
 }
 
+// Main Content
+main[role="main"] {
+    margin: 3rem 0;
+    position: relative;
+
+    .control {
+        position: absolute;
+        top: -40px;
+        right: 10px;
+        font-size: $md-size;
+        color: darken($snd-color, 10%);
+        cursor: pointer;
+        &:hover {
+            color: $blk-snd-bg-color;
+        }
+    }
+
+    .control__black {
+        color: darken($snd-color, 10%);
+        &:hover {
+            color: $snd-color;
+        }
+    }
+}
+
 // Footer with social items
 footer[role="contentinfo"] {
     padding: 1rem 0 5rem 0;
     background-color: $snd-bg-color;
-    border-top: 5px solid $snd-color;
+    border-top: 5px solid darken($snd-color, 10%);
 
     .social {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 2rem;
 
         .social__item {
             font-size: $md-size;

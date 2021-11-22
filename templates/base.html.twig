@@ -13,7 +13,7 @@
 					{{ encore_entry_link_tags('app') }}
 				{% endblock %}
 			</head>
-			<body>
+			<body class="shadow">
 				<div class="wrapper">
 					{# En-tête (logo/navigation) #}
 					<header role="banner">
@@ -56,7 +56,12 @@
 					</header>
 
 					{# Contenu principal #}
-					<main>
+					<main role="main">
+                        <div class="control control__black" role="button" aria-label="Changement du thème">
+                            <i class="far fa-lightbulb"></i>
+                        </div>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sint, minus neque culpa quis libero quos repudiandae iste inventore vitae doloremque sit repellat eius dolores expedita laudantium ratione corrupti voluptatibus.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo iste deserunt voluptatum distinctio vitae fugiat libero accusamus expedita, repellat amet deleniti velit sit facilis numquam accusantium a aut? Exercitationem, nobis!
 						{% block content %}{% endblock %}
 					</main>
 
