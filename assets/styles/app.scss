@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Ubuntu:wght@500&display=swap');
-
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap');
 
 // fonts
 $font-title: 'Lobster', sans-serif;
@@ -23,6 +16,19 @@ $blk-text-color: #f5f6fa;
 $sm-size: 1rem;
 $md-size: 1.5rem;
 $lg-size: 2rem;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font: {
+        size: $sm-size;
+        family: $font-text;
+    }
+}
 
 // ========================================= Black Theme ===============================================
 body.shadow {
@@ -41,6 +47,7 @@ header[role="banner"] {
     background-color: $snd-bg-color;
     padding: 1rem 1rem;
     border-bottom: 5px solid darken($snd-color, 10%);
+    box-shadow: 0px 7px 9px -1px rgba(0,0,0,0.38);
 
     // main navigation
     .navbar {
@@ -115,10 +122,13 @@ main[role="main"] {
 
 // Footer with social items
 footer[role="contentinfo"] {
+    position: relative;
     padding: 1rem 0 5rem 0;
     background-color: $snd-bg-color;
     border-top: 5px solid darken($snd-color, 10%);
+    box-shadow: 0px -7px 9px -1px rgba(0,0,0,0.38);
 
+    // Social media
     .social {
         display: flex;
         justify-content: center;
@@ -133,5 +143,34 @@ footer[role="contentinfo"] {
                } 
             }
         }
+    }
+
+    // Footer mention
+    p {
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+
+        span {
+            color: $snd-color;
+        }
+    }
+
+    // Button to back up
+    .backup {
+        position: absolute;
+        bottom: 45px;
+        right: 10px;
+
+        a {
+            color: $snd-color;
+            font-size: $lg-size;
+            cursor: pointer;
+            &:hover {
+                color: darken($snd-color, 10%);
+            }    
+        }
+        
     }
 }
