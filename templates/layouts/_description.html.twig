@@ -21,48 +21,58 @@
     <div class="home__skills">
         <h3 role="heading" aria-level="3">Langages</h3>
         <div class="home__skills-skill">
-            {# 1 SKILL #}
-            <div class="home__skills-skills__skill">
-                <p></p>
-                <p id="skills__desc">HTML5</p>
-            </div>
-            {# / 1 SKILL #}
+            {% for language in languages %}
+                {# 1 SKILL #}
+                <div class="home__skills-skills__skill">
+                    <p><i class="{{ language.icon }}"></i></p>
+                    <p id="skills__desc">{{ language.name }}</p>
+                </div>
+                {# / 1 SKILL #}    
+            {% endfor %}
         </div>
     </div>
     {# TECHNOLOGIES #}
     <div class="home__skills">
         <h3 role="heading" aria-level="3">Outils et Technologies</h3>
         <div class="home__skills-skill">
-            {# 1 SKILL #}
-            <div class="home__skills-skills__skill">
-                <p></p>
-                <p id="skills__desc">Symfony</p>
-            </div>
-            {# / 1 SKILL #}
+            {% for techno in technos %}
+                {# 1 SKILL #}
+                <div class="home__skills-skills__skill">
+                    <p><i class="{{ techno.icon }}"></i></p>
+                    <p id="skills__desc">{{ techno.name }}</p>
+                </div>
+                {# / 1 SKILL #}    
+            {% endfor %}
+            
         </div>
     </div>
     {# OUTILS DE COLLABORATION #}
     <div class="home__skills">
         <h3 role="heading" aria-level="3">Outils de Collaboration</h3>
         <div class="home__skills-skill">
-            {# 1 SKILL #}
-            <div class="home__skills-skills__skill">
-                <p></p>
-                <p id="skills__desc">Discord</p>
-            </div>
-            {# / 1 SKILL #}
+            {% for collaboration in collaborations %}
+                {# 1 SKILL #}
+                <div class="home__skills-skills__skill">
+                    <p><i class="{{ collaboration.icon }}"></i></p>
+                    <p id="skills__desc">{{ collaboration.name }}</p>
+                </div>
+                {# / 1 SKILL #}    
+            {% endfor %}
         </div>
     </div>
     {# COMPETENCES #}
     <div class="home__skills">
         <h3 role="heading" aria-level="3">Autres compétences</h3>
         <div class="home__skills-skill">
-            {# 1 SKILL #}
-            <div class="home__skills-skills__skill">
-                <p></p>
-                <p id="skills__desc">Discord</p>
-            </div>
-            {# / 1 SKILL #}
+            {% for skill in skills %}
+                {# 1 SKILL #}
+                <div class="home__skills-skills__skill">
+                    <p><i class="{{ skill.icon }}"></i></p>
+                    <p id="skills__desc">{{ skill.name }}</p>
+                </div>
+                {# / 1 SKILL #}   
+            {% endfor %}
+            
         </div>
     </div>
 </section>
