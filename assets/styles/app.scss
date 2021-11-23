@@ -96,6 +96,8 @@ body {
     // Skill section on home page
     section#skills {
         background-color: $blk-snd-bg-color;
+        border-bottom: $snd-color dashed 2.5px;
+        border-top: $snd-color dashed 2.5px;
 
         .home__skills {
             border-bottom: $snd-color solid .5px;
