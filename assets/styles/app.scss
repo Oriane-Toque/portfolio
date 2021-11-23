@@ -35,6 +35,22 @@ body.shadow {
     footer[role="contentinfo"] {
         background-color: $blk-snd-bg-color;
     }
+
+    // All sections home page
+    section.home {
+        background-color: $blk-trans-bg;
+
+        // Description section (article)
+        .home__description {
+            a:visited {
+                color: $blk-text-color;
+            }
+            a:hover {
+                color: darken($snd-color, 30%);
+            } 
+        }
+        
+    }
 }
 
 // ========================================= Light Theme ===============================================
@@ -43,7 +59,41 @@ body {
         size: $sm-size;
         family: $font-text;
     }
+    color: $text-color;
 
+    // ============ BLOCKS ===========
+    // All sections home page
+    section.home {
+        padding: 1rem 2rem;
+
+        // Description section (picture ares)
+        .home__ares {
+            display: none;
+        }
+
+        // Description section (article)
+        .home__description {
+
+            a {
+                color: $snd-color;
+                font-weight: bold;
+                text-decoration: underline;
+                &:visited {
+                    color: $text-color;
+                }
+                &:hover {
+                    color: darken($snd-color, 30%);
+                }
+            }
+        }
+    }
+
+    // Skill section on home page
+    section#skills {
+        background-color: $blk-snd-bg-color;
+    }
+
+    // ============ ELEMENTS ===========
     // All Title Level
     h1, h2, h3, h4, h5, h6 {
         font: {
@@ -73,16 +123,19 @@ body {
         color: $snd-color;
     }
 
+    // All text links
     span.link {
         margin-right: .5rem;
     }
 
+    // All text
     p {
         line-height: 1.5rem;
         text-align: justify;
         word-break: keep-all;
     }
 
+    // Emphase text
     em {
         color: $snd-color;
         font-style: italic;
@@ -170,34 +223,6 @@ main[role="main"] {
         &:hover {
             color: $snd-color;
         }
-    }
-
-    section.home {
-        background-color: $blk-trans-bg;
-        padding: 1rem 2rem;
-
-        .home__ares {
-            display: none;
-        }
-
-        .home__description {
-
-            a {
-                color: $snd-color;
-                font-weight: bold;
-                text-decoration: underline;
-                &:visited {
-                    color: $blk-text-color;
-                }
-                &:hover {
-                    color: darken($snd-color, 30%);
-                }
-            }
-        }
-    }
-
-    section#skills {
-        background-color: $blk-snd-bg-color;
     }
 }
 
