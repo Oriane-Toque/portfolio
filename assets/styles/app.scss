@@ -8,10 +8,13 @@ $font-text: 'Ubuntu', sans-serif;
 $snd-bg-color: #f5f6fa; 
 $text-color: #2f3640;
 $snd-color: #e0b029;
+$title-color: #0f1014;
 // colors (black theme)
 $main-bg-color: #2f3640;
 $blk-snd-bg-color: #0f1014;
 $blk-text-color: #f5f6fa;
+$blk-trans-bg: rgba(34, 34, 34, 0.877);
+$blk-title-color: #e0b029;
 // font size
 $sm-size: 1rem;
 $md-size: 1.5rem;
@@ -21,13 +24,6 @@ $lg-size: 2rem;
 *::before,
 *::after {
     box-sizing: border-box;
-}
-
-body {
-    font: {
-        size: $sm-size;
-        family: $font-text;
-    }
 }
 
 // ========================================= Black Theme ===============================================
@@ -42,6 +38,57 @@ body.shadow {
 }
 
 // ========================================= Light Theme ===============================================
+body {
+    font: {
+        size: $sm-size;
+        family: $font-text;
+    }
+
+    // All Title Level
+    h1, h2, h3, h4, h5, h6 {
+        font: {
+            size: $md-size;
+            family: $font-title;
+        }
+        color: $blk-title-color;
+        margin-bottom: 1rem;
+    }
+
+    // Main Title (Level 1)
+    h1 {
+        position: absolute;
+        top: 50px;
+        right: 10px;
+        width: 50%;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: $sm-size;
+        color: $snd-color;
+        background-color: $blk-trans-bg;
+        padding: 1.5rem 1.5rem;
+        border-radius: .2rem;
+    }
+
+    span {
+        color: $snd-color;
+    }
+
+    span.link {
+        margin-right: .5rem;
+    }
+
+    p {
+        line-height: 1.5rem;
+        text-align: justify;
+        word-break: keep-all;
+    }
+
+    em {
+        color: $snd-color;
+        font-style: italic;
+    }
+}
+
 // Header/banner
 header[role="banner"] {
     background-color: $snd-bg-color;
@@ -97,12 +144,18 @@ header[role="banner"] {
 
 // Main Content
 main[role="main"] {
-    margin: 3rem 0;
+    margin-bottom: 3rem;
     position: relative;
+
+    .banner {
+        width: 100%;
+        border-bottom: $snd-color double 5px;
+        margin-bottom: -5px;
+    }
 
     .control {
         position: absolute;
-        top: -40px;
+        top: 5px;
         right: 10px;
         font-size: $md-size;
         color: darken($snd-color, 10%);
@@ -117,6 +170,34 @@ main[role="main"] {
         &:hover {
             color: $snd-color;
         }
+    }
+
+    section.home {
+        background-color: $blk-trans-bg;
+        padding: 1rem 2rem;
+
+        .home__ares {
+            display: none;
+        }
+
+        .home__description {
+
+            a {
+                color: $snd-color;
+                font-weight: bold;
+                text-decoration: underline;
+                &:visited {
+                    color: $blk-text-color;
+                }
+                &:hover {
+                    color: darken($snd-color, 30%);
+                }
+            }
+        }
+    }
+
+    section#skills {
+        background-color: $blk-snd-bg-color;
     }
 }
 

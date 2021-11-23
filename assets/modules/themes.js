@@ -1,12 +1,16 @@
 const themes = {
 
     init: function() {
-
+        // récupération du bouton permettant de changer le thème
         const switchButton = document.querySelector(".control");
         switchButton.addEventListener("click", themes.handleSwitchTheme);
     },
 
-
+    /**
+     * To switch theme (dark<<>>light)
+     * 
+     * @param {*} evt 
+     */
     handleSwitchTheme: function(evt) {
         const switchButton = evt.currentTarget;
 
