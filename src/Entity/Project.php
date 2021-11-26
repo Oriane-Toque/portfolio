@@ -35,11 +35,6 @@ class Project
     private $complement;
 
     /**
-     * @ORM\Column(type="datetime_immutable")
-     */
-    private $updatedAt;
-
-    /**
      * @ORM\ManyToMany(targetEntity=Langage::class)
      */
     private $languages;
@@ -48,6 +43,21 @@ class Project
      * @ORM\ManyToMany(targetEntity=Technology::class)
      */
     private $technologies;
+
+    /**
+     * @ORM\Column(type="string", length=2000)
+     */
+    private $url;
+
+    /**
+     * @ORM\Column(type="string", length=2000)
+     */
+    private $github;
+
+    /**
+     * @ORM\Column(type="string", length=2000, nullable=true)
+     */
+    private $githubopt;
 
     public function __construct()
     {
@@ -80,18 +90,6 @@ class Project
     public function setPicture(string $picture): self
     {
         $this->picture = $picture;
-
-        return $this;
-    }
-
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -152,6 +150,42 @@ class Project
     public function removeTechnology(Technology $technology): self
     {
         $this->technologies->removeElement($technology);
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getGithub(): ?string
+    {
+        return $this->github;
+    }
+
+    public function setGithub(string $github): self
+    {
+        $this->github = $github;
+
+        return $this;
+    }
+
+    public function getGithubopt(): ?string
+    {
+        return $this->githubopt;
+    }
+
+    public function setGithubopt(?string $githubopt): self
+    {
+        $this->githubopt = $githubopt;
 
         return $this;
     }
