@@ -16,6 +16,7 @@ $blk-text-color: #f5f6fa;
 $blk-trans-bg: rgba(34, 34, 34, 0.877);
 $blk-title-color: #e0b029;
 // font size
+$xs-size: .8rem;
 $sm-size: 1rem;
 $md-size: 1.5rem;
 $lg-size: 2rem;
@@ -50,12 +51,6 @@ body.shadow {
             } 
         }
     }
-
-    // Skill Section on home page
-    section#skills {
-
-
-    }
 }
 
 // ========================================= Light Theme ===============================================
@@ -88,6 +83,71 @@ body {
                 }
                 &:hover {
                     color: darken($snd-color, 30%);
+                }
+            }
+        }
+
+        // Projects section
+        .home__projects {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+
+            .home__projects-project {
+                position: relative;
+                display: block;
+                height: 200px;
+
+                .home__projects-project__title {
+                    font-size: $sm-size;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    z-index: 1;
+                    width: 25%;
+                    background-color: $blk-trans-bg;
+                    padding: .5rem .5rem;
+                    text-align: center;
+                    margin: 0;
+                }
+
+                .home__projects-project__img {
+                    position: relative;
+                    height: 100%;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    .home__projects-project__img--icons {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        position: absolute;
+                        bottom: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 100%;
+                        padding: .5rem .5rem;
+                        background-color: $blk-snd-bg-color;
+
+                        .project__icons {
+                            font-size: $xs-size;
+                            word-spacing: .5rem;
+                            color: $blk-text-color;
+                        }
+
+                        a {
+                            font-size: $xs-size;
+                            text-decoration: none;
+                            color: $blk-text-color;
+                            &:hover {
+                                color: $snd-color;
+                            }
+                        }
+                    }
                 }
             }
         }

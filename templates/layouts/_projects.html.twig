@@ -2,11 +2,11 @@
 <section id="project" class="home">
     <h2 role="heading" aria-level="2">Projets réalisés</h2>
     
-    <ul class="home_projects" role="list">
+    <ul class="home__projects" role="list">
         {# 1 project #}
         {% for project in projects %}
             <li class="home__projects-project" role="listitem">
-                <h3 role="heading" aria-level="3">{{ project.name }}</h3>
+                <h3 class="home__projects-project__title" role="heading" aria-level="3">{{ project.name }}</h3>
                 {# 1 picture + infos tech project #}
                 <figure class="home__projects-project__img">
                     <img src="{{ asset("build/img/projects_preview/" ~ project.picture) }}" alt="{{ project.name }}" role="img">
@@ -26,7 +26,9 @@
                             {# fin 1 icon #}
                         </div>
                         {# link from details page #}
-                        <a href="#details" role="link" aria-label="Détails du projet"><i></i></a>
+                        <a href="#details" role="link" aria-label="Détails de {{ project.name }}">Détails 
+                            <i class="fas fa-arrow-alt-circle-right"></i>
+                        </a>
                     </figcaption>
                 </figure>
                 {# fin 1 picture project #}
