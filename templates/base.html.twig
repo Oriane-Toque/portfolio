@@ -29,13 +29,13 @@
 							<ul class="navbar__nav" role="list">
                                 {# Accueil #}
 								<li class="navbar__nav-item" role="listitem">
-                                    <a href="{{ url("app_home") }}" role="link" aria-label="Accueil">
+                                    <a href="{{ path("app_home") }}" role="link" aria-label="Accueil">
                                         <i class="fas fa-home"></i> <span>Accueil</span>
                                     </a>
                                 </li>
                                 {# Projets #}
 								<li class="navbar__nav-item" role="listitem">
-                                    <a href="#project" role="link" aria-label="Projets">
+                                    <a href="#projects" role="link" aria-label="Projets">
                                         <i class="fab fa-symfony"></i> <span>Projets</span>
                                     </a>
                                 </li>
@@ -96,7 +96,7 @@
                         </ul>
                         <p>Portfolio - Copyright <span><i class="far fa-copyright"></i></span> 2021</p>
                         <div class="backup" aria-label="Retour en haut de page" role="link">
-                            <a href="{{ url("app_home") }}">
+                            <a href="{{ path("app_home") }}">
                                 <i class="fas fa-arrow-circle-up"></i>
                             </a>
                         </div>
