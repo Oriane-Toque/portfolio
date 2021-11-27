@@ -4,23 +4,34 @@
     
     <ul class="home_projects" role="list">
         {# 1 project #}
-        <li class="home__projects-project" role="listitem">
-            <h3 role="heading" aria-level="3">Place2Go</h3>
-            {# 1 picture + infos tech project #}
-            <figure class="home__projects-project__img">
-                <img src="#" alt="Place2Go" role="img">
-                <figcaption class="home__projects-project__img--icons">
-                    <div class="project__icons">
-                        {# 1 icon #}
-                        <p class="project__icons-icon" role="img" aria-label="HTML"><i class=""></i></p>
-                        {# fin 1 icon #}
-                    </div>
-                    {# link from details page #}
-                    <a href="#details" role="link" aria-label="Détails du projet"><i></i></a>
-                </figcaption>
-            </figure>
-            {# fin 1 picture project #}
-        </li>
+        {% for project in projects %}
+            <li class="home__projects-project" role="listitem">
+                <h3 role="heading" aria-level="3">{{ project.name }}</h3>
+                {# 1 picture + infos tech project #}
+                <figure class="home__projects-project__img">
+                    <img src="{{ asset("build/img/projects_preview/" ~ project.picture) }}" alt="{{ project.name }}" role="img">
+                    <figcaption class="home__projects-project__img--icons">
+                        <div class="project__icons" aria-label="Techno & Langages : {{ project.label_tech }},{{ project.label_lg }}">
+                            {# 1 icon techno #}
+                            {% if project.technologies %}
+                                {% for techno in project.technologies %}
+                                    <i class="{{ techno }}"></i>    
+                                {% endfor %}
+                            {% endif %}
+                            {# fin 1 icon #}
+                            {# 1 icon language #}
+                            {% for language in project.languages %}
+                                <i class="{{ language }}"></i>    
+                            {% endfor %}
+                            {# fin 1 icon #}
+                        </div>
+                        {# link from details page #}
+                        <a href="#details" role="link" aria-label="Détails du projet"><i></i></a>
+                    </figcaption>
+                </figure>
+                {# fin 1 picture project #}
+            </li>    
+        {% endfor %}
         {# fin 1 project #}
     </ul>
 </section>

@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Project;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -17,6 +18,16 @@ class ProjectRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Project::class);
+    }
+
+    public function findProjects() {
+        return $this->createQueryBuilder('p')
+            ->select('p.name', 'p.picture', 'GROUP_CONCAT(DISTINCT l.icon) AS languages', 'GROUP_CONCAT(DISTINCT l.name) AS label_lg', 'GROUP_CONCAT(DISTINCT t.name) AS label_tech', 'GROUP_CONCAT(DISTINCT t.icon) AS technologies')
+            ->innerJoin('p.languages', 'l')
+            ->leftJoin('p.technologies', 't')
+            ->groupBy('p.id')
+            ->getQuery()
+            ->getResult();
     }
 
     // /**

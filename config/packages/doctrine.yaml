@@ -16,3 +16,7 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+        # CUSTOM DQL FUNCTIONS
+        dql:
+            string_functions:
+                group_concat: DoctrineExtensions\Query\Mysql\GroupConcat
