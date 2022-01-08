@@ -1,13 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap");
 
 // fonts
-$font-title: 'Lobster', sans-serif;
-$font-text: 'Ubuntu', sans-serif;
+$font-title: "Lobster", sans-serif;
+$font-text: "Ubuntu", sans-serif;
 // colors (light theme)
-$snd-bg-color: #f5f6fa; 
+$snd-bg-color: #f5f6fa;
 $text-color: #232425;
 $snd-color: #e0b029;
+$snd-color-trans: rgba(224, 176, 41, 0.8);
 $title-color: #0f1014;
 // colors (black theme)
 $main-bg-color: #232425;
@@ -16,7 +17,7 @@ $blk-text-color: #f5f6fa;
 $blk-trans-bg: rgba(34, 34, 34, 0.877);
 $blk-title-color: #e0b029;
 // font size
-$xs-size: .8rem;
+$xs-size: 0.8rem;
 $sm-size: 1rem;
 $md-size: 1.5rem;
 $lg-size: 2rem;
@@ -24,398 +25,547 @@ $lg-size: 2rem;
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 // ========================================= Black Theme ===============================================
 body.shadow {
-    background-color: $main-bg-color;
-    color: $blk-text-color;
+  background-color: $main-bg-color;
+  color: $blk-text-color;
 
-    header[role="banner"],
-    footer[role="contentinfo"] {
-        background-color: $blk-snd-bg-color;
+  header[role="banner"],
+  footer[role="contentinfo"] {
+    background-color: $blk-snd-bg-color;
+  }
+
+  // All sections home page
+  section.home {
+    background-color: $blk-trans-bg;
+
+    // Description section (article)
+    .home__description {
+      a:visited {
+        color: $blk-text-color;
+      }
+      a:hover {
+        color: darken($snd-color, 30%);
+      }
     }
-
-    // All sections home page
-    section.home {
-        background-color: $blk-trans-bg;
-
-        // Description section (article)
-        .home__description {
-            a:visited {
-                color: $blk-text-color;
-            }
-            a:hover {
-                color: darken($snd-color, 30%);
-            } 
-        }
-    }
+  }
 }
 
 // ========================================= Light Theme ===============================================
 body {
-    font: {
-        size: $sm-size;
-        family: $font-text;
-    }
-    color: $text-color;
+  font: {
+    size: $sm-size;
+    family: $font-text;
+  }
+  color: $text-color;
 
-    // ============ BLOCKS ===========
-    // All sections home page
-    section.home {
-        padding: 2rem 2rem 4rem;
+  // ============ BLOCKS ===========
+  // All sections home page
+  section.home {
+    padding: 2rem 2rem 4rem;
 
-        // Description section (picture ares)
-        .home__ares {
-            display: none;
-        }
-
-        // Description section (article)
-        .home__description {
-
-            a {
-                color: $snd-color;
-                font-weight: bold;
-                text-decoration: underline;
-                &:visited {
-                    color: $text-color;
-                }
-                &:hover {
-                    color: darken($snd-color, 30%);
-                }
-            }
-        }
-
-        // Projects section
-        .home__projects {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-
-            .home__projects-project {
-                position: relative;
-                display: block;
-                height: 350px;
-
-                .home__projects-project__title {
-                    font-size: $sm-size;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    z-index: 1;
-                    width: 25%;
-                    background-color: $blk-trans-bg;
-                    padding: .5rem .5rem;
-                    text-align: center;
-                    margin: 0;
-                }
-
-                .home__projects-project__img {
-                    position: relative;
-                    height: 100%;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
-
-                    .home__projects-project__img--icons {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        z-index: 1;
-                        width: 100%;
-                        padding: .5rem .5rem;
-                        background-color: $blk-snd-bg-color;
-
-                        .project__icons {
-                            font-size: $xs-size;
-                            word-spacing: .5rem;
-                            color: $blk-text-color;
-                        }
-
-                        a {
-                            font-size: $xs-size;
-                            text-decoration: none;
-                            color: $blk-text-color;
-                            &:hover {
-                                color: $snd-color;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        // CV section
-        .home__cv {
-            position: relative;
-
-            img {
-                width: 100%;
-            }
-
-            .home__cv-download {
-                display: block;
-                position: absolute;
-                bottom: 2px;
-                right: 0;
-                z-index: 1;
-                background-color: $snd-color;
-                padding: 1rem;
-                font-size: 2rem;
-                &:hover {
-                    background-color: $main-bg-color;
-                }
-
-                a {
-                    color: $blk-text-color;
-                }
-            }
-
-            .home__cv-update {
-                display: block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 1;
-                background-color: $snd-color;
-                color: $blk-text-color;
-                font-weight: bold;
-                padding: 1rem;
-                width: 50%;
-            }
-        }
-
-        .home__skills {
-            border-bottom: $snd-color solid .5px;
-            margin-bottom: 1.5rem;
-            padding-bottom: .5rem;
-
-            h3 {
-                color: darken($snd-color, 10%);
-                font-size: $sm-size;
-                text-decoration: underline;
-                margin-bottom: 1rem;    
-            }
-
-            .home__skills-skill {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-
-                .home__skills-skills__skill {
-                    flex: 1;
-
-                    p {
-                        text-align: center;
-                        color: $blk-text-color;   
-                    }
-                    .skills__icon {
-                        font-size: $md-size; 
-                    }
-                }
-            }
-        }
+    // Description section (picture ares)
+    .home__ares {
+      display: none;
     }
 
-    // Switch theme section
-    section.--switch {
-        background-color: $blk-snd-bg-color!important;
-        border-bottom: $snd-color dashed 2.5px;
-        border-top: $snd-color dashed 2.5px;
+    // Description section (article)
+    .home__description {
+      a {
+        color: $snd-color;
+        font-weight: bold;
+        text-decoration: underline;
+        &:visited {
+          color: $text-color;
+        }
+        &:hover {
+          color: darken($snd-color, 30%);
+        }
+      }
     }
 
-    // ============ BLOCKS =============
-    // Header/banner
-    header[role="banner"] {
-        background-color: $snd-bg-color;
-        padding: 1rem 1rem;
-        border-bottom: 5px solid darken($snd-color, 10%);
-        box-shadow: 0px 7px 9px -1px rgba(0,0,0,0.38);
+    // Projects section
+    .home__projects {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
 
-        // main navigation
-        .navbar {
+      .home__projects-project {
+        position: relative;
+        display: block;
+        height: 350px;
+
+        .home__projects-project__title {
+          font-size: $sm-size;
+          position: absolute;
+          top: 0;
+          right: 0;
+          z-index: 1;
+          width: 25%;
+          background-color: $blk-trans-bg;
+          padding: 0.5rem 0.5rem;
+          text-align: center;
+          margin: 0;
+        }
+
+        .home__projects-project__img {
+          position: relative;
+          height: 100%;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .home__projects-project__img--icons {
             display: flex;
-            flex-direction: row;
             justify-content: space-between;
             align-items: center;
-
-            // logo
-            #navbar__logo {
-                flex: 1;
-
-                img {
-                    height: 50px;
-                    width: 50px;    
-                }
-            }
-
-            // items navigation
-            .navbar__nav {
-                flex: 1;
-                display: flex;
-                justify-content: space-between;
-
-                // item list
-                .navbar__nav-item {
-                    flex: 1;
-                    margin: 0 5px;
-                    text-align: right;
-
-                    // links
-                    a {
-                        font-size: $md-size;
-                        color: $snd-color;
-                        &:hover {
-                            color: darken($snd-color, 30%);
-                        }
-                        // text links
-                        span {
-                            display: none;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    // Main Content
-    main[role="main"] {
-        margin-bottom: 3rem;
-        position: relative;
-
-        .banner {
-            width: 100%;
-            border-bottom: $snd-color double 5px;
-            margin-bottom: -5px;
-        }
-
-        .control {
-            position: fixed;
-            top: 95px;
-            right: 7px;
-            font-size: $md-size;
-            color: darken($snd-color, 10%);
-            cursor: pointer;
-            &:hover {
-                color: $blk-snd-bg-color;
-            }
-        }
-
-        .control__black {
-            color: darken($snd-color, 10%);
-            &:hover {
-                color: $snd-color;
-            }
-        }
-    }
-
-    // Footer with social items
-    footer[role="contentinfo"] {
-        position: relative;
-        padding: 1rem 0 5rem 0;
-        background-color: $snd-bg-color;
-        border-top: 5px solid darken($snd-color, 10%);
-        box-shadow: 0px -7px 9px -1px rgba(0,0,0,0.38);
-
-        // Social media
-        .social {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-
-            .social__item {
-                font-size: $md-size;
-                a {
-                color: $snd-color;
-                &:hover {
-                    color: darken($snd-color, 30%);
-                } 
-                }
-            }
-        }
-
-        // Footer mention
-        p {
-            text-align: center;
             position: absolute;
-            bottom: 10px;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
             width: 100%;
+            padding: 0.5rem 0.5rem;
+            background-color: $blk-snd-bg-color;
 
-            span {
-                color: $snd-color;
+            .project__icons {
+              font-size: $xs-size;
+              word-spacing: 0.5rem;
+              color: $blk-text-color;
             }
-        }
-
-        // Button to back up
-        .backup {
-            position: absolute;
-            bottom: 45px;
-            right: 10px;
 
             a {
+              font-size: $xs-size;
+              text-decoration: none;
+              color: $blk-text-color;
+              &:hover {
                 color: $snd-color;
-                font-size: $lg-size;
-                cursor: pointer;
-                &:hover {
-                    color: darken($snd-color, 10%);
-                }    
+              }
             }
-            
+          }
         }
+      }
     }
 
-    // ============ ELEMENTS ===========
-    // All Title Level
-    h1, h2, h3, h4, h5, h6 {
-        font: {
+    // CV section
+    .home__cv {
+      position: relative;
+
+      img {
+        width: 100%;
+      }
+
+      .home__cv-download {
+        display: block;
+        position: absolute;
+        bottom: 2px;
+        right: 0;
+        z-index: 1;
+        background-color: $snd-color;
+        padding: 1rem;
+        font-size: 2rem;
+        &:hover {
+          background-color: $main-bg-color;
+        }
+
+        a {
+          color: $blk-text-color;
+        }
+      }
+
+      .home__cv-update {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        background-color: $snd-color;
+        color: $blk-text-color;
+        font-weight: bold;
+        padding: 1rem;
+        width: 50%;
+      }
+    }
+
+    // skills section
+    .home__skills {
+      border-bottom: $snd-color solid 0.5px;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+
+      h3 {
+        color: darken($snd-color, 10%);
+        font-size: $sm-size;
+        text-decoration: underline;
+        margin-bottom: 1rem;
+      }
+
+      .home__skills-skill {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .home__skills-skills__skill {
+          flex: 1;
+
+          p {
+            text-align: center;
+            color: $blk-text-color;
+          }
+          .skills__icon {
+            font-size: $md-size;
+          }
+        }
+      }
+    }
+
+    // form section
+    .home__contact {
+      padding: 1rem 1.5rem;
+      background-color: $snd-color-trans;
+      border-radius: 0.5rem;
+
+      .home__contact-fieldset {
+        text-align: center;
+        line-height: 1.5rem;
+
+        // title form
+        .home__contact-legend {
+          font: {
             size: $md-size;
             family: $font-title;
+          }
+          margin: 1rem 0;
         }
-        color: $blk-title-color;
-        margin-bottom: 1rem;
+
+        // section form fields
+        .home__contact-section {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 1rem;
+
+          // errors form
+          .home__contact-errors {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-align: left;
+
+            font: {
+              size: $xs-size;
+              weight: bolder;
+            }
+
+            // icons bomb (errors)
+            svg.svg-inline--fa.fa-bomb.fa-w-16 {
+                color: $blk-snd-bg-color;
+            }
+
+            // text errors
+            ul {
+                padding-left: .5rem;
+            }
+          }
+
+          // label form
+          .home__contact-section__label {
+            font-weight: bolder;
+            margin-bottom: 0.5rem;
+          }
+
+          // input form
+          .home__contact-section__row {
+            font-family: $font-text;
+            padding: 0.2rem 0.5rem;
+
+            &:focus-visible {
+              outline-color: $blk-snd-bg-color;
+            }
+          }
+
+          textarea {
+            height: 150px;
+          }
+        }
+
+        // submit button form
+        .home__contact-submit {
+          background: $blk-snd-bg-color;
+          background-image: -webkit-linear-gradient(
+            top,
+            $blk-snd-bg-color,
+            $main-bg-color
+          );
+          background-image: -moz-linear-gradient(
+            top,
+            $blk-snd-bg-color,
+            $main-bg-color
+          );
+          background-image: -ms-linear-gradient(
+            top,
+            $blk-snd-bg-color,
+            $main-bg-color
+          );
+          background-image: -o-linear-gradient(
+            top,
+            $blk-snd-bg-color,
+            $main-bg-color
+          );
+          background-image: -webkit-gradient(
+            to bottom,
+            $blk-snd-bg-color,
+            $main-bg-color
+          );
+          -webkit-border-radius: 0.5rem;
+          -moz-border-radius: 0.5rem;
+          border-radius: 0.5rem;
+          color: #ffffff;
+          font-family: $font-text;
+          font-size: $sm-size;
+          font-weight: bolder;
+          padding: 1rem 1.5rem;
+          text-shadow: 1px 1px 20px #000000;
+          border: solid $main-bg-color 1px;
+          text-decoration: none;
+          display: inline-block;
+          cursor: pointer;
+          text-align: center;
+
+          &:hover {
+            border: solid $blk-snd-bg-color 1px;
+            background: $main-bg-color;
+            background-image: -webkit-linear-gradient(
+              top,
+              $main-bg-color,
+              $blk-snd-bg-color
+            );
+            background-image: -moz-linear-gradient(
+              top,
+              $main-bg-color,
+              $blk-snd-bg-color
+            );
+            background-image: -ms-linear-gradient(
+              top,
+              $main-bg-color,
+              $blk-snd-bg-color
+            );
+            background-image: -o-linear-gradient(
+              top,
+              $main-bg-color,
+              $blk-snd-bg-color
+            );
+            background-image: -webkit-gradient(
+              to bottom,
+              $main-bg-color,
+              $blk-snd-bg-color
+            );
+          }
+        }
+      }
+    }
+  }
+
+  // Switch theme section
+  section.--switch {
+    background-color: $blk-snd-bg-color !important;
+    border-bottom: $snd-color dashed 2.5px;
+    border-top: $snd-color dashed 2.5px;
+  }
+
+  // ============ BLOCKS =============
+  // Header/banner
+  header[role="banner"] {
+    background-color: $snd-bg-color;
+    padding: 1rem 1rem;
+    border-bottom: 5px solid darken($snd-color, 10%);
+    box-shadow: 0px 7px 9px -1px rgba(0, 0, 0, 0.38);
+
+    // main navigation
+    .navbar {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      // logo
+      #navbar__logo {
+        flex: 1;
+
+        img {
+          height: 50px;
+          width: 50px;
+        }
+      }
+
+      // items navigation
+      .navbar__nav {
+        flex: 1;
+        display: flex;
+        justify-content: space-between;
+
+        // item list
+        .navbar__nav-item {
+          flex: 1;
+          margin: 0 5px;
+          text-align: right;
+
+          // links
+          a {
+            font-size: $md-size;
+            color: $snd-color;
+            &:hover {
+              color: darken($snd-color, 30%);
+            }
+            // text links
+            span {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Main Content
+  main[role="main"] {
+    margin-bottom: 3rem;
+    position: relative;
+
+    .banner {
+      width: 100%;
+      border-bottom: $snd-color double 5px;
+      margin-bottom: -5px;
     }
 
-    // Main Title (Level 1)
-    h1 {
-        position: absolute;
-        top: 50px;
-        right: 10px;
-        width: 50%;
-        margin-bottom: 0;
-        text-align: center;
-        font-size: $sm-size;
+    .control {
+      position: fixed;
+      top: 95px;
+      right: 7px;
+      font-size: $md-size;
+      color: darken($snd-color, 10%);
+      cursor: pointer;
+      &:hover {
+        color: $blk-snd-bg-color;
+      }
+    }
+
+    .control__black {
+      color: darken($snd-color, 10%);
+      &:hover {
         color: $snd-color;
-        background-color: $blk-trans-bg;
-        padding: 1.5rem 1.5rem;
-        border-radius: .2rem;
+      }
+    }
+  }
+
+  // Footer with social items
+  footer[role="contentinfo"] {
+    position: relative;
+    padding: 1rem 0 5rem 0;
+    background-color: $snd-bg-color;
+    border-top: 5px solid darken($snd-color, 10%);
+    box-shadow: 0px -7px 9px -1px rgba(0, 0, 0, 0.38);
+
+    // Social media
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+
+      .social__item {
+        font-size: $md-size;
+        a {
+          color: $snd-color;
+          &:hover {
+            color: darken($snd-color, 30%);
+          }
+        }
+      }
     }
 
-    span {
-        color: $snd-color;
-    }
-
-    // All text links
-    span.link {
-        margin-right: .5rem;
-    }
-
-    // All text
+    // Footer mention
     p {
-        line-height: 1.5rem;
-        text-align: justify;
-        word-break: keep-all;
+      text-align: center;
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+
+      span {
+        color: $snd-color;
+      }
     }
 
-    // Emphase text
-    em {
+    // Button to back up
+    .backup {
+      position: absolute;
+      bottom: 45px;
+      right: 10px;
+
+      a {
         color: $snd-color;
-        font-style: italic;
+        font-size: $lg-size;
+        cursor: pointer;
+        &:hover {
+          color: darken($snd-color, 10%);
+        }
+      }
     }
+  }
+
+  // ============ ELEMENTS ===========
+  // All Title Level
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font: {
+      size: $md-size;
+      family: $font-title;
+    }
+    color: $blk-title-color;
+    margin-bottom: 1rem;
+  }
+
+  // Main Title (Level 1)
+  h1 {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    width: 50%;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: $sm-size;
+    color: $snd-color;
+    background-color: $blk-trans-bg;
+    padding: 1.5rem 1.5rem;
+    border-radius: 0.2rem;
+  }
+
+  span {
+    color: $snd-color;
+  }
+
+  // All text links
+  span.link {
+    margin-right: 0.5rem;
+  }
+
+  // All text
+  p {
+    line-height: 1.5rem;
+    text-align: justify;
+    word-break: keep-all;
+  }
+
+  // Emphase text
+  em {
+    color: $snd-color;
+    font-style: italic;
+  }
 }

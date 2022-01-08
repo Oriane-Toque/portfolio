@@ -1,0 +1,54 @@
+<section id="contact" class="home">
+
+    {{ form_start(contact, {attr:  {'novalidate': 'novalidate', 'class': 'home__contact', 'role': 'form', 'aria-label': 'Contactez moi'}}) }}
+
+        <fieldset class="home__contact-fieldset">
+            <legend class="home__contact-legend" role="heading" aria-level="2">Contact</legend>
+
+                <div class="home__contact-section">
+                    {{ form_label(contact.lastname, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                    {{ form_widget(contact.lastname, {attr:  {'class': 'home__contact-section__row'}}) }}
+                    {% if form_errors(contact.lastname) is not empty %}
+                        <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.lastname) }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="home__contact-section">
+                    {{ form_label(contact.firstname, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                    {{ form_widget(contact.firstname, {attr:  {'class': 'home__contact-section__row'}}) }}
+                    {% if form_errors(contact.firstname) is not empty %}
+                        <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.firstname) }}</div>
+                    {% endif %}
+                </div>
+                
+                <div class="home__contact-section">
+                    {{ form_label(contact.organism, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                    {{ form_widget(contact.organism, {attr:  {'class': 'home__contact-section__row'}}) }}
+                    {% if form_errors(contact.organism) is not empty %}
+                        <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.organism) }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="home__contact-section">
+                    {{ form_label(contact.email, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                    {{ form_widget(contact.email, {attr:  {'class': 'home__contact-section__row'}}) }}
+                    {% if form_errors(contact.email) is not empty %}
+                        <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.email) }}</div>
+                    {% endif %}
+                </div>
+
+                <div class="home__contact-section">
+                    {{ form_label(contact.message, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                    {{ form_widget(contact.message, {attr:  {'class': 'home__contact-section__row'}}) }}
+                    {% if form_errors(contact.message) is not empty %}
+                        <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.message) }}</div>
+                    {% endif %}
+                </div>
+
+
+                {{ form_widget(contact.submit, {attr: {'class': 'home__contact-submit'}}) }}
+
+        </fieldset>
+    {{ form_end(contact) }}
+
+</section>

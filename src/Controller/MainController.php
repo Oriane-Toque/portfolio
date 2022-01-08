@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\ContactType;
 use App\Repository\CollaborationRepository;
 use App\Repository\LangageRepository;
 use App\Repository\ProjectRepository;
@@ -9,6 +10,7 @@ use App\Repository\SkillRepository;
 use App\Repository\TechnologyRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
@@ -22,10 +24,10 @@ class MainController extends AbstractController
     /**
      * OnePage with description & all projects
      *
-     * @Route("/", name="home", methods={"GET"})
+     * @Route("/", name="home", methods={"GET", "POST"})
      * @return Response
      */
-    public function list(LangageRepository $lr, CollaborationRepository $cr, SkillRepository $sr, TechnologyRepository $tr, ProjectRepository $pr): Response
+    public function list(Request $request, LangageRepository $lr, CollaborationRepository $cr, SkillRepository $sr, TechnologyRepository $tr, ProjectRepository $pr): Response
     {
 
         // récupération des projets pour la liste
@@ -38,12 +40,22 @@ class MainController extends AbstractController
             $projects[$i]['technologies'] = explode(',', $projects[$i]['technologies']);
         }
 
+        // formulaire de contact
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()) {
+            
+            dd($form->getData());
+        }
+
         return $this->render("home/index.html.twig", [
             "languages" => $lr->findAll(),
             "collaborations" => $cr->findAll(),
             "technos" => $tr->findAll(),
             "skills" => $sr->findAll(),
             "projects" => $projects,
+            "contact" => $form->createView(),
         ]);
     }
 
