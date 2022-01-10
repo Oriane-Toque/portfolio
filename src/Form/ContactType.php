@@ -77,6 +77,20 @@ class ContactType extends AbstractType
                     ])
                 ]
             ])
+            ->add('subject', TextType::class, [
+                'label' => 'Objet *',
+                'required' => true,
+                'constraints' => [
+                    new Sequentially([
+                        new NotBlank([], 'Ce champs ne doit pas être vide', false, 'trim'),
+                        new Type('string', 'Ce champs doit contenir une chaîne de caractères'),
+                        new Length(['min' => 2, 'max' => 50, 'normalizer' => 'trim',
+                            'minMessage' => 'L\'objet doit au moins contenir {{ limit }} caractères',
+                            'maxMessage' => 'L\'objet ne peut contenir plus de {{ limit }} caractères'
+                        ])
+                    ])
+                ]
+            ])
             ->add('message', TextareaType::class, [
                 'label' => 'Message *',
                 'required' => true,

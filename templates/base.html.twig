@@ -35,19 +35,19 @@
                                 </li>
                                 {# Projets #}
 								<li class="navbar__nav-item" role="listitem">
-                                    <a href="#projects" role="link" aria-label="Projets">
+                                    <a href="{{ path("app_home") }}#projects" role="link" aria-label="Projets">
                                         <i class="fab fa-symfony"></i> <span>Projets</span>
                                     </a>
                                 </li>
                                 {# Curriculum Vitae #}
                                 <li class="navbar__nav-item" role="listitem">
-                                    <a href="#infos" role="link" aria-label="Curriculum Vitae">
+                                    <a href="{{ path("app_home") }}#infos" role="link" aria-label="Curriculum Vitae">
                                         <i class="fas fa-id-badge"></i> <span>CV</span>
                                     </a>
                                 </li>
                                 {# Contact #}
                                 <li class="navbar__nav-item" role="listitem">
-                                    <a href="#contact" role="link" aria-label="Contact">
+                                    <a href="{{ path("app_contact") }}" role="link" aria-label="Contact">
                                         <i class="fas fa-paper-plane"></i> <span>Contact</span>
                                     </a>
                                 </li>
@@ -62,6 +62,17 @@
                         <div class="control control__black" role="button" aria-label="Changement du thème">
                             <i class="far fa-lightbulb"></i>
                         </div>
+
+                        {# FLASH MESSAGE #}
+                        {% for label, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="messages message__{{ label }}">
+                                    <p>{{ message }}</p>
+                                    <p class="messages__close"><i class="fas fa-times"></i></p>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+
 						{% block content %}{% endblock %}
 					</main>
 

@@ -11,6 +11,7 @@ import './styles/app.scss';
 
 // script import
 import './modules/themes.js';
+import './modules/flash.js';
 
 // font awesome
 require('@fortawesome/fontawesome-free/css/all.min.css');

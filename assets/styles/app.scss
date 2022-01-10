@@ -224,9 +224,10 @@ body {
       }
     }
 
-    // form section
+    // contact page : form section
     .home__contact {
       padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
       background-color: $snd-color-trans;
       border-radius: 0.5rem;
 
@@ -237,10 +238,12 @@ body {
         // title form
         .home__contact-legend {
           font: {
-            size: $md-size;
+            size: $lg-size;
             family: $font-title;
           }
           margin: 1rem 0;
+          width: 100%;
+          color:  $text-color;
         }
 
         // section form fields
@@ -368,6 +371,36 @@ body {
         }
       }
     }
+
+    // contact page : other way to contact
+    .home__contacts {
+      text-align: center;
+      .home__contacts-items {
+        line-height: 2rem;
+      }
+    }
+
+    // home page : contact section (button)
+    #home__contact {
+      text-align: center;
+      display: block;
+      padding: 1.5rem 2rem;
+      background: $snd-color;
+      border-radius: .8rem;
+      font-size: 1.5rem;
+      word-spacing: .2rem;
+      word-wrap: break-word;
+      text-decoration: none;
+      color: $blk-text-color;
+      font-family: 'Lobster';
+      transition: all .2s ease;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        background: $blk-snd-bg-color;
+      }
+    }
   }
 
   // Switch theme section
@@ -442,6 +475,7 @@ body {
       margin-bottom: -5px;
     }
 
+    // ACTION BUTTON (SWITCH THEME)
     .control {
       position: fixed;
       top: 95px;
@@ -460,6 +494,31 @@ body {
         color: $snd-color;
       }
     }
+
+    // FLASH MESSAGES (contact email)
+    .messages {
+      position: relative;
+      margin-top: 1.5rem;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      color: $blk-text-color;
+      font-weight: bold;
+    }
+    // OK message
+    .message__success {  
+      background-color: #27ae60;
+    }
+    // FAIL message
+    .message__warning {  
+      background-color: #c0392b;
+    }
+    // Close button for flash message
+    .messages__close {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      cursor: pointer;
+    } 
   }
 
   // Footer with social items
