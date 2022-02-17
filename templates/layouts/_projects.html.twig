@@ -25,10 +25,17 @@
                             {% endfor %}
                             {# fin 1 icon #}
                         </div>
-                        {# link from details page #}
-                        <a href="#details" role="link" aria-label="Détails de {{ project.name }}">Détails 
-                            <i class="fas fa-arrow-alt-circle-right"></i>
-                        </a>
+                        <div class="project__links">
+                            {# link from github project #}
+                            <a href="{{ project.github }}" role="link" aria-label="Dépot github - {{ project.name }}" target="_blank" rel="noopener noreferrer">Github
+                                <i class="fas fa-arrow-alt-circle-right"></i>
+                            </a>
+                            {# link from app #}
+                            <a href="{{ project.url }}" role="link" aria-label="Voir l'application - {{ project.name }}" target="_blank" rel="noopener noreferrer">App
+                                <i class="fas fa-arrow-alt-circle-right"></i>
+                            </a>
+                        </div>
+                        
                     </figcaption>
                 </figure>
                 {# fin 1 picture project #}

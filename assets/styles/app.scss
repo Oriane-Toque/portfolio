@@ -17,7 +17,8 @@ $blk-text-color: #f5f6fa;
 $blk-trans-bg: rgba(34, 34, 34, 0.877);
 $blk-title-color: #e0b029;
 // font size
-$xs-size: 0.8rem;
+$xxs-size: .6rem;
+$xs-size: .8rem;
 $sm-size: 1rem;
 $md-size: 1.5rem;
 $lg-size: 2rem;
@@ -66,6 +67,13 @@ body {
   // All sections home page
   section.home {
     padding: 2rem 2rem 4rem;
+    box-shadow: 0px 7px 12px -1px rgb(0 0 0 / 44%);
+
+    @media screen and (min-width: 730px) {
+      margin: 0 auto;
+      width: 65%;
+    }
+
 
     // Description section (picture ares)
     .home__ares {
@@ -85,6 +93,12 @@ body {
           color: darken($snd-color, 30%);
         }
       }
+
+      #parcours {
+        p {
+          margin: 1rem 0;
+        }
+      }
     }
 
     // Projects section
@@ -92,6 +106,10 @@ body {
       display: grid;
       grid-template-columns: 1fr;
       gap: 20px;
+
+      @media screen and (min-width: 1000px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
 
       .home__projects-project {
         position: relative;
@@ -109,6 +127,12 @@ body {
           padding: 0.5rem 0.5rem;
           text-align: center;
           margin: 0;
+
+          @media screen and (min-width: 850px) {
+            font-size: $md-size;
+            padding: 1rem 1rem;
+            width: 40%;
+          }
         }
 
         .home__projects-project__img {
@@ -133,14 +157,24 @@ body {
             padding: 0.5rem 0.5rem;
             background-color: $blk-snd-bg-color;
 
+            @media screen and (min-width: 1000px) {
+              padding: 1rem .5rem;
+            }
+
             .project__icons {
-              font-size: $xs-size;
+              font-size: $sm-size;
               word-spacing: 0.5rem;
               color: $blk-text-color;
             }
 
+            .project__links {
+              a:first-child {
+                margin-right: .5rem;
+              }
+            }
+
             a {
-              font-size: $xs-size;
+              font-size: $sm-size;
               text-decoration: none;
               color: $blk-text-color;
               &:hover {
@@ -203,6 +237,10 @@ body {
         font-size: $sm-size;
         text-decoration: underline;
         margin-bottom: 1rem;
+
+        @media screen and (min-width: 800px) {
+          font-size: $md-size;
+        }
       }
 
       .home__skills-skill {
@@ -227,9 +265,13 @@ body {
     // contact page : form section
     .home__contact {
       padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
       background-color: $snd-color-trans;
       border-radius: 0.5rem;
+
+      @media screen and (min-width: 800px) {
+        margin: 0 auto;
+        width: 65%;
+      }
 
       .home__contact-fieldset {
         text-align: center;
@@ -375,6 +417,7 @@ body {
     // contact page : other way to contact
     .home__contacts {
       text-align: center;
+      margin-top: 1.5rem;
       .home__contacts-items {
         line-height: 2rem;
       }
@@ -441,22 +484,87 @@ body {
         display: flex;
         justify-content: space-between;
 
+        @media screen and (min-width: 730px) {
+          flex: 3;
+        }
+
+        @media screen and (min-width: 1000px) {
+          flex: 1;
+        }
+
         // item list
         .navbar__nav-item {
           flex: 1;
           margin: 0 5px;
           text-align: right;
+          &:hover {
+            a {
+              color: darken($snd-color, 10%);
+
+              // infobulles
+              span {
+                position: absolute;
+                display: flex;
+                align-items: center;
+                bottom: -20px;
+                left: 0;
+                height: 1rem;
+                padding: .2rem;
+                font-size: $xxs-size;
+                border-radius: .2rem;
+                background-color: #ffffff40;
+                font-weight: bold;
+
+                @media screen and (min-width: 730px) {
+                  position: initial;
+                  background: none;
+                  padding: initial;
+                  height: initial;
+                  font-size: initial;
+                  border-radius: initial;
+                }
+              }
+            }
+          }
+
+          @media screen and (min-width: 730px) {
+            flex: none;
+            text-align: center;
+
+            &:hover {
+              a>span {
+                color: darken($snd-color, 10%);
+              }
+
+              a>span {
+                text-decoration: underline;
+              }
+            }
+          }
 
           // links
           a {
+            display: flex;
+            position: relative;
             font-size: $md-size;
             color: $snd-color;
-            &:hover {
-              color: darken($snd-color, 30%);
-            }
+            word-spacing: .8rem;
+            text-decoration: none;
             // text links
             span {
               display: none;
+              
+              @media screen and (min-width: 730px) {
+                display: flex;
+                align-items: center;
+                font-size: initial;
+                font-weight: bold;
+                margin-left: 10px;
+              }
+
+              @media screen and (min-width: 1000px) {
+                font-size: $sm-size;
+              }
             }
           }
         }
@@ -486,6 +594,10 @@ body {
       &:hover {
         color: $blk-snd-bg-color;
       }
+
+      @media screen and (min-width: 800px) {
+        font-size: $lg-size;
+      }
     }
 
     .control__black {
@@ -498,7 +610,8 @@ body {
     // FLASH MESSAGES (contact email)
     .messages {
       position: relative;
-      margin-top: 1.5rem;
+      margin: 0 auto;
+      width: 65%;
       padding: 1.5rem 2rem;
       text-align: center;
       color: $blk-text-color;
@@ -587,6 +700,9 @@ body {
       size: $md-size;
       family: $font-title;
     }
+    @media screen and (min-width: 800px) {
+      font-size: $lg-size;
+    }
     color: $blk-title-color;
     margin-bottom: 1rem;
   }
@@ -604,6 +720,10 @@ body {
     background-color: $blk-trans-bg;
     padding: 1.5rem 1.5rem;
     border-radius: 0.2rem;
+
+    @media screen and (min-width: 800px) {
+      font-size: $lg-size;
+    }
   }
 
   span {

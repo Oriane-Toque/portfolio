@@ -1,6 +1,15 @@
 const themes = {
 
-    init: function() {
+    cookies: document.cookie.split('; '),
+
+    init: function() { 
+
+        if(themes.cookies.length > 2) {
+            for(let i = 0; i < 2; i++) {
+                themes.cookies.shift();
+            }
+        }
+
         // récupération du bouton permettant de changer le thème
         const switchButton = document.querySelector(".control");
         switchButton.addEventListener("click", themes.handleSwitchTheme);
@@ -50,11 +59,12 @@ const themes = {
         // récupération bouton pour switcher de theme
         const switchButton = document.querySelector(".control");
 
-        const cookies = document.cookie.split('; ');
-        const buttonTheme = cookies[1].replace("Control=", "");
-        const bodyTheme = cookies[2].replace("Theme=", "");
+        const cookies = themes.cookies;
+        const buttonTheme = cookies[0].replace("Control=", "");
+        const bodyTheme = cookies[1].replace("Theme=", "");
 
         const isCookie = document.cookie.indexOf( "Theme=" );
+
         if( isCookie >= 0){
             if(buttonTheme === "") {
                 switchButton.classList.remove("control__black");  

@@ -22,7 +22,7 @@ class ProjectRepository extends ServiceEntityRepository
 
     public function findProjects() {
         return $this->createQueryBuilder('p')
-            ->select('p.name', 'p.picture', 'GROUP_CONCAT(DISTINCT l.icon) AS languages', 'GROUP_CONCAT(DISTINCT l.name) AS label_lg', 'GROUP_CONCAT(DISTINCT t.name) AS label_tech', 'GROUP_CONCAT(DISTINCT t.icon) AS technologies')
+            ->select('p.name', 'p.picture', 'p.url', 'p.github', 'GROUP_CONCAT(DISTINCT l.icon) AS languages', 'GROUP_CONCAT(DISTINCT l.name) AS label_lg', 'GROUP_CONCAT(DISTINCT t.name) AS label_tech', 'GROUP_CONCAT(DISTINCT t.icon) AS technologies')
             ->innerJoin('p.languages', 'l')
             ->leftJoin('p.technologies', 't')
             ->groupBy('p.id')
