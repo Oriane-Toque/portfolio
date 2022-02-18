@@ -37,8 +37,8 @@ DirectoryIndex index.php
     RewriteRule .* - [E=BASE:%1]
 
     # Sets the HTTP_AUTHORIZATION header removed by Apache
-    RewriteCond %{HTTP:Authorization} .+
-    RewriteRule ^ - [E=HTTP_AUTHORIZATION:%0]
+    # RewriteCond %{HTTP:Authorization} .+
+    # RewriteRule ^ - [E=HTTP_AUTHORIZATION:%0]
 
     # Redirect to URI without front controller to prevent duplicate content
     # (with and without `/index.php`). Only do this redirect on the initial
@@ -51,7 +51,7 @@ DirectoryIndex index.php
     # - disable this feature by commenting the following 2 lines or
     # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
     #   following RewriteCond (best solution)
-    RewriteCond %{ENV:REDIRECT_STATUS} =""
+    # RewriteCond %{ENV:REDIRECT_STATUS} =""
     RewriteRule https://^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [L, R=301]
 
     # If the requested filename exists, simply serve it.
