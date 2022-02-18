@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title "Home" %}
+
+{% block banner %}
+    {% include "layouts/banner.html.twig" %}
+{% endblock %}
+
+{% block content %}
+
+    {# Section Description #}
+    {% include "layouts/_description.html.twig" %}
+
+    {# Section Projets #}
+    {% include "layouts/_projects.html.twig" %}
+    
+    {# Section Curriculum Vitae #}
+    {% include "layouts/_cv.html.twig" %}
+    
+    {# Section Formulaire #}
+    {% include "layouts/_contact.html.twig" %}
+
+{% endblock %}

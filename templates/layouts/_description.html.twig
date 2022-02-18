@@ -1,0 +1,78 @@
+{# Description / Parcours #}
+<section class="home" role="article" aria-labelledby="description" aria-describedby="parcours">
+    <div class="home__ares" role="img" aria-describedby="Création graphique personnel : Arès"></div>
+    <article class="home__description">
+        <h2 id="description" role="heading" aria-level="2">Le développement web, une vocation</h2>
+        <div id="parcours">
+            <p><span><i class="fas fa-code"></i></span> Issue d'une formation dans les <em>Métiers du Multimédia et de l'Internet</em> (DUT MMI), suite à deux années de formation, je me suis spécialisée en graphisme. Bien que j'avais choisi une voie transversale à la conception web, je me suis toujours vivement intéressée à l'informatique et au développement web. Toutes ces années, malgré les chemins que j'ai emprunté, j'ai continué à me documenter et à apprendre en autodidacte différents langages de programmation, pour le plaisir ! </p>
+            <p>J'ai finis par réviser mes choix professionnels, considérant passer à côté de ma vocation. Alors je me suis lancée un objectif cette année là, me former pour devenir développeuse web. Et j'ai découvert la <em>Grande École du Numérique "O'Clock"</em>, qui proposait différentes formations intensives pour devenir développeur fullstack</p>
+            <p>Sur une période de 6 mois de formation, j'ai suivi des cours sur différents langages : <em>HTML5</em>, <em>CCS3</em>, <em>Javascript</em>, <em>PHP</em> et <em>MySQL</em> pour commencer. J'ai vu différentes <em>architectures</em> et <em>patterns</em> sur plusieurs projets, et j'ai été formé à la ligne de commande et à l'usage de <em>Git</em> pour le Versionning. Durant ces mois de formation, j'ai été amené à relever de nouveaux défis, toujours de nouveaux projets à réaliser et j'ai adoré ça, que je travaille seule ou en collaboration avec d'autres personnes. </p>
+            <p>Et vint le jour tant attendu, où j'ai choisi ma spécialisation ! Au tout début j'aurais juré me spécialiser sur une technologie front-end, le choix ne fut pas évident mais j'ai décidé de me spécialiser sur <em>Symfony</em>. Dans tous les cas, j'aime autant faire du front que du back et je savais que je continuerais à me former seule sur d'autres technologies (framework/CMS).</p>
+            <p>A la suite de ma spécialisation, c'est le grand saut, il était temps de réaliser en méthode <em>Agile</em> un projet professionnel ! J'ai choisi de me greffer à un projet full symfony qui me tenait réellement à coeur. La création d'un OVS (On Va Sortir) !! Mon équipe et moi-même avons réalisé sur 4 sprints de 5 jours, ce projet que l'on a appelé "Place2Go". <em>Place2Go</em> est né du désir de redonner un coup de jeune aux OVS, avec un système de carte plus moderne, un profil utilisateur avec un dashboard pour manager toutes ses sorties (rejointes/créées), un moteur de recherche et bien d'autres fonctionnalités.. sans oublier un Back-Office pour les administrateurs : <span class="link"><i class="fas fa-sign-out-alt"></i></span><a href="https://place2go.herokuapp.com/" target="_blank" rel="noopener noreferrer">Place2Go</a></p>
+            <p>Cette formation m'a ensuite donné accès à la plateforme <em>OPQUAST</em>, qui forme aux risques liées à la qualité web mais aussi aux bonnes pratiques durant toutes les phases de conception, la certification précise le niveau de maîtrise et est à renouveler tous les 5ans environs pour découvrir les évolutions dûes à l'avancée des technologies mais aussi à l'identification des besoins utilisateurs : <span class="link"><i class="fas fa-sign-out-alt"></i></span><a href="https://directory.opquast.com/fr/certificat/XLNJ7W/" target="_blank" rel="noopener noreferrer">Ma Certification OPQUAST</a></p>
+            <p>Puis je me suis préparée pour passer mon <em>Titre Professionnel de Développeur Web et Web Mobile</em> sur Paris, et aujourd'hui, je suis diplômée, prête à m'engager professionnellement, d'intégrer une équipe avec qui je réaliserais de nouveaux projets, communiquer avec différents corps de métiers et continuer à monter en compétences sur de nouvelles technologies ! <span><i class="fas fa-code"></i></span></p>
+        </div>
+    </article>
+</section>
+{# Technologies et compétences #}
+<section id="skills" class="home --switch" role="complementary" aria-label="Technologies et Compétences">
+    <h2 role="heading" aria-level="2">Technologies et Compétences</h2>
+    {# LANGUAGES #}
+    <div class="home__skills">
+        <h3 role="heading" aria-level="3">Langages</h3>
+        <div class="home__skills-skill">
+            {% for language in languages %}
+                {# 1 SKILL #}
+                <div class="home__skills-skills__skill">
+                    <p class="skills__icon" role="img" aria-label="{{ language.name }}"><i class="{{ language.icon }}"></i></p>
+                    <p>{{ language.name }}</p>
+                </div>
+                {# / 1 SKILL #}    
+            {% endfor %}
+        </div>
+    </div>
+    {# TECHNOLOGIES #}
+    <div class="home__skills">
+        <h3 role="heading" aria-level="3">Outils et Technologies</h3>
+        <div class="home__skills-skill">
+            {% for techno in technos %}
+                {# 1 SKILL #}
+                <div class="home__skills-skills__skill">
+                    <p class="skills__icon" role="img" aria-label="{{ techno.name }}"><i class="{{ techno.icon }}"></i></p>
+                    <p>{{ techno.name }}</p>
+                </div>
+                {# / 1 SKILL #}    
+            {% endfor %}
+            
+        </div>
+    </div>
+    {# OUTILS DE COLLABORATION #}
+    <div class="home__skills">
+        <h3 role="heading" aria-level="3">Outils de Collaboration</h3>
+        <div class="home__skills-skill">
+            {% for collaboration in collaborations %}
+                {# 1 SKILL #}
+                <div class="home__skills-skills__skill">
+                    <p class="skills__icon" role="img" aria-label="{{ collaboration.name }}"><i class="{{ collaboration.icon }}"></i></p>
+                    <p>{{ collaboration.name }}</p>
+                </div>
+                {# / 1 SKILL #}    
+            {% endfor %}
+        </div>
+    </div>
+    {# COMPETENCES #}
+    <div class="home__skills">
+        <h3 role="heading" aria-level="3">Autres compétences</h3>
+        <div class="home__skills-skill">
+            {% for skill in skills %}
+                {# 1 SKILL #}
+                <div class="home__skills-skills__skill">
+                    <p class="skills__icon" role="img" aria-label="{{ skill.name }}"><i class="{{ skill.icon }}"></i></p>
+                    <p>{{ skill.name }}</p>
+                </div>
+                {# / 1 SKILL #}   
+            {% endfor %}
+            
+        </div>
+    </div>
+</section>
