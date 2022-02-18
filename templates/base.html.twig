@@ -1,19 +1,120 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+		<html>
+			<head>
+				<meta charset="UTF-8">
+				<meta name="description" content="Développeuse web PHP Symfony, en recherche d'un poste">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<title>Oriane Toque : Développeuse Web PHP/Symfony -
+					{% block title %}{% endblock %}
+				</title>
+				{# Run `composer require symfony/webpack-encore-bundle`and uncomment the following Encore helpers to start using Symfony UX #}
+				<link rel="shortcut icon" href="{{ asset("build/img/logo.png") }}" type="image/x-icon">
+				{% block stylesheets %}
+					{{ encore_entry_link_tags('app') }}
+				{% endblock %}
+			</head>
+			<body class="shadow">
+				<div class="wrapper">
+					{# En-tête (logo/navigation) #}
+					<header role="banner">
+						<nav class="navbar" role="navigation" aria-label="Navigation principale">
+                            {# Logo + Accueil #}
+                            <div id="navbar__logo" aria-label="Logo" role="img">
+                                <a href="{{ url("app_home") }}" role="link" aria-label="Accueil">
+                                    <img src="{{ asset("build/img/logo.png") }}" alt="logo">
+                                </a>
+                            </div>
+                            
+                            {# Navigation principale #}
+							<ul class="navbar__nav" role="list">
+                                {# Accueil #}
+								<li class="navbar__nav-item" role="listitem">
+                                    <a href="{{ path("app_home") }}" role="link" aria-label="Accueil">
+                                        <i class="fas fa-home"></i> <span>Accueil</span>
+                                    </a>
+                                </li>
+                                {# Projets #}
+								<li class="navbar__nav-item" role="listitem">
+                                    <a href="{{ path("app_home") }}#projects" role="link" aria-label="Projets">
+                                        <i class="fas fa-code"></i> <span>Projets</span>
+                                    </a>
+                                </li>
+                                {# Curriculum Vitae #}
+                                <li class="navbar__nav-item" role="listitem">
+                                    <a href="{{ path("app_home") }}#infos" role="link" aria-label="Curriculum Vitae">
+                                        <i class="fas fa-id-badge"></i> <span>CV</span>
+                                    </a>
+                                </li>
+                                {# Contact #}
+                                <li class="navbar__nav-item" role="listitem">
+                                    <a href="{{ path("app_contact") }}" role="link" aria-label="Contact">
+                                        <i class="fas fa-paper-plane"></i> <span>Contact</span>
+                                    </a>
+                                </li>
+							</ul>
+						</nav>
+					</header>
 
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
-</html>
+					{# Contenu principal #}
+					<main role="main">
+                        {% block banner %}{% endblock %}
+                        <div class="control control__black" role="button" aria-label="Changement du thème">
+                            <i class="far fa-lightbulb"></i>
+                        </div>
+
+                        {# FLASH MESSAGE #}
+                        {% for label, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="messages message__{{ label }}">
+                                    <p>{{ message }}</p>
+                                    <p class="messages__close"><i class="fas fa-times"></i></p>
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+
+						{% block content %}{% endblock %}
+					</main>
+
+					{# Pied de page (réseaux sociaux/liens) #}
+					<footer role="contentinfo">
+                        {# liens réseaux #}
+                        <ul class="social" role="list" aria-label="Réseaux sociaux">
+                            {# Twitter #}
+                            <li class="social__item" role="listitem" aria-label="Twitter">
+                                <a href="https://twitter.com/OrianeTrinity" target="_blank" rel="noopener noreferrer" role="link">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            {# Linkedin #}
+                            <li class="social__item" role="listitem" aria-label="Linkedin">
+                                <a href="https://www.linkedin.com/in/oriane-t" target="_blank" rel="noopener noreferrer" role="link">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </li>
+                            {# Mail #}
+                            <li class="social__item" role="listitem" aria-label="Mail">
+                                <a href="mailto:oriane.toque@gmail.com" target="_blank" rel="noopener noreferrer" role="link">
+                                    <i class="fas fa-at"></i>
+                                </a>
+                            </li>
+                            {# Github #}
+                            <li class="social__item" role="listitem" aria-label="Github">
+                                <a href="https://github.com/Oriane-Toque" target="_blank" rel="noopener noreferrer" role="link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <p>Portfolio - Copyright <span><i class="far fa-copyright"></i></span> 2021</p>
+                        <div class="backup" aria-label="Retour en haut de page" role="link">
+                            <a href="{{ path("app_home") }}">
+                                <i class="fas fa-arrow-circle-up"></i>
+                            </a>
+                        </div>
+                    </footer>
+				</div>
+
+				{% block javascripts %}
+					{{ encore_entry_script_tags('app') }}
+				{% endblock %}
+			</body>
+		</html>

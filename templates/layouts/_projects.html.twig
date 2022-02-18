@@ -1,0 +1,46 @@
+{# Projects #}
+<section id="projects" class="home">
+    <h2 role="heading" aria-level="2">Projets réalisés</h2>
+    
+    <ul class="home__projects" role="list">
+        {# 1 project #}
+        {% for project in projects %}
+            <li class="home__projects-project" role="listitem">
+                <h3 class="home__projects-project__title" role="heading" aria-level="3">{{ project.name }}</h3>
+                {# 1 picture + infos tech project #}
+                <figure class="home__projects-project__img">
+                    <img src="{{ asset("build/img/projects_preview/" ~ project.picture) }}" alt="{{ project.name }}" role="img">
+                    <figcaption class="home__projects-project__img--icons">
+                        <div class="project__icons" aria-label="Techno & Langages : {{ project.label_tech }},{{ project.label_lg }}">
+                            {# 1 icon techno #}
+                            {% if project.technologies %}
+                                {% for techno in project.technologies %}
+                                    <i class="{{ techno }}"></i>    
+                                {% endfor %}
+                            {% endif %}
+                            {# fin 1 icon #}
+                            {# 1 icon language #}
+                            {% for language in project.languages %}
+                                <i class="{{ language }}"></i>    
+                            {% endfor %}
+                            {# fin 1 icon #}
+                        </div>
+                        <div class="project__links">
+                            {# link from github project #}
+                            <a href="{{ project.github }}" role="link" aria-label="Dépot github - {{ project.name }}" target="_blank" rel="noopener noreferrer">Github
+                                <i class="fas fa-arrow-alt-circle-right"></i>
+                            </a>
+                            {# link from app #}
+                            <a href="{{ project.url }}" role="link" aria-label="Voir l'application - {{ project.name }}" target="_blank" rel="noopener noreferrer">App
+                                <i class="fas fa-arrow-alt-circle-right"></i>
+                            </a>
+                        </div>
+                        
+                    </figcaption>
+                </figure>
+                {# fin 1 picture project #}
+            </li>    
+        {% endfor %}
+        {# fin 1 project #}
+    </ul>
+</section>

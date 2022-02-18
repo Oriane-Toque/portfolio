@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+
+{% block title "Home" %}
+
+{% block content %}
+
+    <section id="contact" class="home">
+
+        {{ form_start(contact, {attr:  {'novalidate': 'novalidate', 'class': 'home__contact', 'role': 'form', 'aria-label': 'Contactez moi'}}) }}
+
+            <fieldset class="home__contact-fieldset">
+                <legend class="home__contact-legend" role="heading" aria-level="2">Contact</legend>
+
+                    <div class="home__contact-section">
+                        {{ form_label(contact.lastname, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                        {{ form_widget(contact.lastname, {attr:  {'class': 'home__contact-section__row'}}) }}
+                        {% if form_errors(contact.lastname) is not empty %}
+                            <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.lastname) }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="home__contact-section">
+                        {{ form_label(contact.firstname, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                        {{ form_widget(contact.firstname, {attr:  {'class': 'home__contact-section__row'}}) }}
+                        {% if form_errors(contact.firstname) is not empty %}
+                            <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.firstname) }}</div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="home__contact-section">
+                        {{ form_label(contact.organism, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                        {{ form_widget(contact.organism, {attr:  {'class': 'home__contact-section__row'}}) }}
+                        {% if form_errors(contact.organism) is not empty %}
+                            <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.organism) }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="home__contact-section">
+                        {{ form_label(contact.email, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                        {{ form_widget(contact.email, {attr:  {'class': 'home__contact-section__row'}}) }}
+                        {% if form_errors(contact.email) is not empty %}
+                            <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.email) }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="home__contact-section">
+                        {{ form_label(contact.subject, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                        {{ form_widget(contact.subject, {attr:  {'class': 'home__contact-section__row'}}) }}
+                        {% if form_errors(contact.subject) is not empty %}
+                            <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.subject) }}</div>
+                        {% endif %}
+                    </div>
+
+                    <div class="home__contact-section">
+                        {{ form_label(contact.message, null, {label_attr:  {'class': 'home__contact-section__label'}}) }}
+                        {{ form_widget(contact.message, {attr:  {'class': 'home__contact-section__row'}}) }}
+                        {% if form_errors(contact.message) is not empty %}
+                            <div class="home__contact-errors"><i class="fas fa-bomb"></i>{{ form_errors(contact.message) }}</div>
+                        {% endif %}
+                    </div>
+
+
+                    {{ form_widget(contact.submit, {attr: {'class': 'home__contact-submit'}}) }}
+
+            </fieldset>
+        {{ form_end(contact) }}
+
+        <section class="home__contacts">
+            <h3 role="heading" aria-level="2">Autres Moyens de Contact</h3>
+            <ul class="home__contacts-items">
+                <li class="home__contacts-items__item"><span><i class="fas fa-phone-alt"></i></span> Tel : 06.68.52.67.03</li>
+                <li class="home__contacts-items__item"><span><i class="fas fa-envelope"></i></span> Mail : oriane.toque@gmail.com</li>
+            </ul>
+        </section>
+    </section>
+
+{% endblock %}
