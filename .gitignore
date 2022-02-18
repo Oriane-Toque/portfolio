@@ -27,3 +27,10 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+###> ssl keys & csr ###
+server.csr
+server.key
+server.pass.key
+server.crt
+###< ssl keys & csr ###
