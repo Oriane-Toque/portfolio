@@ -21,11 +21,11 @@ DirectoryIndex index.php
     RewriteEngine On
     
     # If we receive a forwarded http request from a proxy...
-    RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
+    # RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
 
     # ...or just a plain old http request directly from the client
-    RewriteCond %{HTTP:X-Forwarded-Proto} =""
-    RewriteCond %{HTTPS} !=on
+    # RewriteCond %{HTTP:X-Forwarded-Proto} =""
+    # RewriteCond %{HTTPS} !=on
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the
     # project in a subdirectory, the base path will be prepended to allow proper
