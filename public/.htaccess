@@ -18,43 +18,31 @@ DirectoryIndex index.php
 </IfModule>
 
 <IfModule mod_rewrite.c>
+    # Turn on Rewrite Engine
     RewriteEngine On
-    
-    RewriteCond %{HTTPS} !=on
-    # Determine the RewriteBase automatically and set it as environment variable.
-    # If you are using Apache aliases to do mass virtual hosting or installed the
-    # project in a subdirectory, the base path will be prepended to allow proper
-    # resolution of the index.php file and to redirect to the correct URI. It will
-    # work in environments without path prefix as well, providing a safe, one-size
-    # fits all solution. But as you do not need it in this case, you can comment
-    # the following 2 lines to eliminate the overhead.
-    RewriteCond %{REQUEST_URI}::$0 ^(/.+)/(.*)::\2$
-    RewriteRule .* - [E=BASE:%1]
 
-    # Sets the HTTP_AUTHORIZATION header removed by Apache
-    RewriteCond %{HTTP:Authorization} .+
-    RewriteRule ^ - [E=HTTP_AUTHORIZATION:%0]
-
-    # Redirect to URI without front controller to prevent duplicate content
-    # (with and without `/index.php`). Only do this redirect on the initial
-    # rewrite by Apache and not on subsequent cycles. Otherwise we would get an
-    # endless redirect loop (request -> rewrite to front controller ->
-    # redirect -> request -> ...).
-    # So in case you get a "too many redirects" error or you always get redirected
-    # to the start page because your Apache does not expose the REDIRECT_STATUS
-    # environment variable, you have 2 choices:
-    # - disable this feature by commenting the following 2 lines or
-    # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
-    #   following RewriteCond (best solution)
-    # RewriteCond %{ENV:REDIRECT_STATUS} =""
-    RewriteCond %{SERVER_PORT} 80
-    RewriteRule https://^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
-
-    # If the requested filename exists, simply serve it.
-    # We only want to let Apache serve files and not directories.
-    # Rewrite all other queries to the front controller.
+    # Include trailing slash on non-filepath urls
+    RewriteCond %{REQUEST_URI} !(.+)/$
+    RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ %{ENV:BASE}/index.php [L]
+    RewriteRule (.*)$ https://oriane-toque.com/$1/ [R=301,L]
+
+    # Include trailing slash on non-filepath URLs with query string
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !(.+)/$
+    RewriteRule ^ https://oriane-toque.com/%1/%2 [R=301,L]
+
+    # Include trailing slash on non-filepath URLs with fragment
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_URI} !(.+)/$
+    RewriteRule ^(.+)\#(.+)$ https://oriane-toque.com/$1/#$2 [R=301,L]
+
+    # Remove trailing slash from directory
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^(.+)/$ https://oriane-toque.com/$1 [R=301,L]
+
+    RewriteCond %{HTTPS} !=on 
+    RewriteRule ^(.*)$ https://oriane-toque.com/$1 [R=301,L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
