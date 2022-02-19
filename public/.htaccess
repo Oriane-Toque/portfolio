@@ -20,6 +20,7 @@ DirectoryIndex index.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
+    RewriteCond %{HTTPS} off
     # If we receive a forwarded http request from a proxy...
     # RewriteCond %{HTTP:X-Forwarded-Proto} =http [OR]
 
