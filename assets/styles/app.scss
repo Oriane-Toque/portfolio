@@ -326,6 +326,8 @@ body {
           .home__contact-section__row {
             font-family: $font-text;
             padding: 0.2rem 0.5rem;
+            min-width: 80%;
+            margin: 0 auto;
 
             &:focus-visible {
               outline-color: $blk-snd-bg-color;
