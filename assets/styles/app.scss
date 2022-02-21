@@ -456,6 +456,10 @@ body {
   // ============ BLOCKS =============
   // Header/banner
   header[role="banner"] {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
     background-color: $snd-bg-color;
     padding: 1rem 1rem;
     border-bottom: 5px solid darken($snd-color, 10%);
@@ -574,6 +578,7 @@ body {
 
   // Main Content
   main[role="main"] {
+    margin-top: 89px;
     margin-bottom: 3rem;
     position: relative;
 
