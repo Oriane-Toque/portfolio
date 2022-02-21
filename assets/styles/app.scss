@@ -34,7 +34,6 @@ body.shadow {
   background-color: $main-bg-color;
   color: $blk-text-color;
 
-  header[role="banner"],
   footer[role="contentinfo"] {
     background-color: $blk-snd-bg-color;
   }
@@ -459,8 +458,8 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 100;
-    background-color: $snd-bg-color;
+    z-index: 2;
+    background-color: $blk-snd-bg-color;
     padding: 1rem 1rem;
     border-bottom: 5px solid darken($snd-color, 10%);
     box-shadow: 0px 7px 9px -1px rgba(0, 0, 0, 0.38);
@@ -591,24 +590,21 @@ body {
     // ACTION BUTTON (SWITCH THEME)
     .control {
       position: fixed;
-      top: 95px;
+      top: 6.5rem;
       right: 7px;
+      z-index: 3;
       font-size: $md-size;
-      color: darken($snd-color, 10%);
+      color: $snd-color;
       cursor: pointer;
       &:hover {
         color: $blk-snd-bg-color;
       }
-
-      @media screen and (min-width: 800px) {
-        font-size: $lg-size;
-      }
     }
 
     .control__black {
-      color: darken($snd-color, 10%);
+      color: $snd-color;
       &:hover {
-        color: $snd-color;
+        color: darken($snd-color, 10%);
       }
     }
 
@@ -643,7 +639,7 @@ body {
   footer[role="contentinfo"] {
     position: relative;
     padding: 1rem 0 5rem 0;
-    background-color: $snd-bg-color;
+    background-color: $blk-snd-bg-color;
     border-top: 5px solid darken($snd-color, 10%);
     box-shadow: 0px -7px 9px -1px rgba(0, 0, 0, 0.38);
 
